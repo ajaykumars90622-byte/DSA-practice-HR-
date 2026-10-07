@@ -18,5 +18,3 @@ else:
 
 ##Sample Input 1: 24
 ##Sample Output 1: Not Weird
-
-##Status: All test cases passed successfully! ✅
