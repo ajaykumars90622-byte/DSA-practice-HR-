@@ -6,9 +6,7 @@ The provided code stub reads two integers from STDIN, $a$ and $b$[cite: 6]. Add 
 2. The second line contains the difference of the two numbers (first - second)[cite: 6].
 3. The third line contains the product of the two numbers[cite: 6].
 
-**Code:**
-```python
-if __name__ == '__main__':
+**code:**
     a = int(input())
     b = int(input())
     
