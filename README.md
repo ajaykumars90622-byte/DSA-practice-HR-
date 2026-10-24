@@ -1,45 +1,6 @@
 <div align="center">
 
-<style>
-@keyframes popFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animated-title {
-  animation: popFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animated-content {
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.5s forwards;
-}
-</style>
-
-<div class="animated-title">
-
 # 🚀 Python Algorithmic Portfolio
-
-</div>
-
-<div class="animated-content">
 
 [![Python 3](https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![GitHub Repo status](https://img.shields.io/badge/Status-Active-success.svg?style=for-the-badge)]()
@@ -49,24 +10,20 @@
 
 </div>
 
-</div>
-
 ---
-
-<div class="animated-content">
 
 ## 💻 Tech Stack & Core Competencies
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Data_Structures-Lists%20%7C%20Dicts%20%7C%20Sets-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Data_Structures-Lists%20%7C%20Depts%20%7C%20Dicts%20%7C%20Sets-blueviolet?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Regex-Pattern_Matching-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
 </p>
 
 ---
 
-## 📂 Completed Programs Index (All 13 Solutions)
+## 📂 Completed Programs Index (All 14 Solutions)
 
 | # | Program / Problem Name | Core Concepts & Techniques | Status |
 | :---: | :--- | :--- | :---: |
@@ -83,6 +40,7 @@
 | **11** | Finding the Percentage | Dictionaries, Iteration, Float formatting (`:.2f`) | `Completed ✅` |
 | **12** | Re.sub() - Regex Substitution | Regular expressions, Lookarounds (`(?<=)`, `(?=)`), Pattern matching | `Completed ✅` |
 | **13** | Lists | Dynamic command parsing, Method routing, State management | `Completed ✅` |
+| **14** | Queue & BFS (`collections.deque`) | Double-ended queues, $O(1)$ left pops (`popleft`), Graph traversal | `Completed ✅` |
 
 ---
 
@@ -260,3 +218,28 @@ for _ in range(N):
         lst.pop()
     elif operation == 'reverse':
         lst.reverse()
+
+
+# ==========================================
+# 14. Queue & BFS using collections.deque (Left Pop)
+# ==========================================
+from collections import deque
+
+def bfs_demo(graph, start_node):
+    visited = set([start_node])
+    queue = deque([start_node])
+    traversal = []
+    
+    while queue:
+        current = queue.popleft() # Fast O(1) left pop
+        traversal.append(current)
+        for neighbor in graph.get(current, []):
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+                
+    return traversal
+
+# Example usage:
+sample_graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['E'], 'D': [], 'E': []}
+print("BFS Traversal:", bfs_demo(sample_graph, 'A'))
